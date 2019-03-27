@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  
+  font-size: calc(1vw + 5px);
+}
+
+header {
+  background: #000;
+  height: 100vh;
+  display: grid;
+  place-items:center;
+}
+section.color-box {
+
+  margin: 0 auto;
+  display: flex;  
+  flex-wrap:wrap;  
+  justify-content: center;
+  align-items:center;
+  height:auto;
+  width: auto;
+  border: 1px dashed gray;
+}
+
+div.box {
+  flex-wrap:wrap; 
+ padding: 3rem;
+  font-size: 2rem; 
+  border: .02rem solid #FFF;
+  color: white;
+  display: grid;
+  place-items: center;
+}
