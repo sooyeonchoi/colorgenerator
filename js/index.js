@@ -2,45 +2,21 @@ const divs = document.querySelectorAll(".box"),
   gradient = document.querySelector(".gradient");
 
 function rndRgb() {
-  let red = Math.floor(Math.random() * 256)
-    .toString(16)
-    .toUpperCase();
-  let green = Math.floor(Math.random() * 256)
-    .toString(16)
-    .toUpperCase();
-  let blue = Math.floor(Math.random() * 256)
-    .toString(16)
-    .toUpperCase();
-  let color = `#${red}${green}${blue}`;
-  return color; //-> rgb(10,123,44)
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+  return [red, green, blue]; //-> rgb(10,123,44)
 }
 
-/*
-const rndRgba =  () => {
-  let color = ``;
-  let red = Math.floor(Math.random()*256) //-> 0 - 255
-  let green = Math.floor(Math.random()*256)
-  let blue = Math.floor(Math.random()*256)
-    let alpha = (Math.random()*1).toFixed(1)
+function rndHex(c) {
+  let hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
 
-  color = `rgba(${red},${green},${blue}, ${alpha})`
-  return color //-> rgb(10,123,44)
-} 
-
-const rndHex = () => {
-  let color = `#`
-  let letters = "a,b,c,d,e,f".split(",")
-  letters.map(letter => letter.toUpperCase())
-  let numbers = [0,1,2,3,4,5,6,7,8,9]
-  let array = [...letters, ...numbers]
-  
-  for (let i = 0; i < 6; i++) {
-    color += `${array[Math.ceil(Math.random()*16)]}`
-  }
-  return color
-  
-} */
-/*   const gradient = `linear-gradient(180deg,${rndRgba()},${rndRgba()})`; */
+function rgbToHex(l) {
+  return ("#" + rndHex(l[0]) + rndHex(l[1]) + rndHex(l[2])).toUpperCase();
+}
+console.log(rgbToHex(rndRgb()));
 
 const copy = data => {
   const element = document.createElement("textarea");
@@ -58,11 +34,10 @@ const copy = data => {
   document.body.removeChild(element);
 };
 
-for (let i = 0; i < divs.length; i++) {
-  divs[i].addEventListener("click", e => {
-    let commonColor = rndRgb();
-    e.style.backgroundColor = commonColor;
-
-    copy(commonColor);
+divs.forEach((e, i) => {
+  e.addEventListener("click", e => {
+    let color = rgbToHex(rndRgb());
+    e.target.style.backgroundColor = color;
+    copy(color);
   });
-}
+});

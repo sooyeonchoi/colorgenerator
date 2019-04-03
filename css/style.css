@@ -2,35 +2,29 @@
   box-sizing: border-box;
 }
 
-html, body {
-  
+html,
+body {
   font-size: calc(1vw + 5px);
 }
 
 header {
-  background: #000;
+  background: #fff;
   height: 100vh;
-  display: grid;
-  place-items:center;
+  display: flex;
 }
 section.color-box {
-
   margin: 0 auto;
-  display: flex;  
-  flex-wrap:wrap;  
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items:center;
-  height:auto;
-  width: auto;
-  border: 1px dashed gray;
 }
 
 div.box {
-  flex-wrap:wrap; 
- padding: 3rem;
-  font-size: 2rem; 
-  border: .02rem solid #FFF;
+  flex-wrap: wrap;
+  padding: 3rem;
+  font-size: 2rem;
+  /*border: 0.02rem solid #fff;*/
   color: white;
-  display: grid;
-  place-items: center;
+  display: flex;
+  width: 25%;
 }
